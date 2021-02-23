@@ -102,7 +102,9 @@ export class OrderPage implements OnInit {
         this.products = [];
         this.orderDetail = {};
       }
-      if (data.success == 0) { this.shared.showAlert(data.message); }
+      if (data.success == 0) { this.shared.showAlert(data.message);
+        this.navCtrl.navigateRoot(this.config.currentRoute + '/thank-you');
+      }
     }, err => {
       this.shared.showAlert('Server Error' + ' ' + err.status);
     });
