@@ -208,7 +208,8 @@ export class ConfigService {
         this.http.post(this.url + req, data, httpOptions).subscribe((data: any) => {
           resolve(data);
         }, (err) => {
-          window.location.href='/thank-you';
+          
+          // window.location.href='/thank-you';
           console.log(err);
         });
       }
