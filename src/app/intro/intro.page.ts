@@ -13,11 +13,7 @@ export class IntroPage implements OnInit {
 
 
   public slides = [
-    { image: "assets/intro/1.gif", title: "Home Page", icon: "home", description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus." },
-    { image: "assets/intro/2.gif", title: "Category Page", icon: "apps", description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus." },
-    { image: "assets/intro/3.gif", title: "Shop Page", icon: "share", description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus." },
-    { image: "assets/intro/4.gif", title: "Cart Page", icon: "basket", description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus." },
-    { image: "assets/intro/5.gif", title: "Order Page", icon: "calendar", description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus." }
+    { image: "assets/intro/logo.png", title: "Home Page", icon: "home"},
   ];
   constructor(
     public navCtrl: NavController,

@@ -27,8 +27,10 @@ if (localStorage.langId == undefined) {
 export class ConfigService {
 
 
-  public yourSiteUrl: string = 'http://localhost:888/website_adminpanel/public/';
+  public yourSiteUrl: string = 'suaurl do seu localhost ex: http://localhost888/food-routine/food-routine_web/public/';
+    //não mecher
   public consumerKey: string = "4c535f4716132229379a88e1cc";
+  //não mecher
   public consumerSecret: string = "72b7c61116132229370ed65ad4";
 
   public showIntroPage = 1; //  0 to hide and 1 to show intro page
