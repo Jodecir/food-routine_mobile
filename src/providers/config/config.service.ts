@@ -209,7 +209,7 @@ export class ConfigService {
           resolve(data);
         }, (err) => {
           
-          window.location.href='/thank-you';
+           window.location.href='/thank-you';
           console.log(err);
         });
       }
