@@ -26,9 +26,8 @@ if (localStorage.langId == undefined) {
 
 export class ConfigService {
 
-
-  public yourSiteUrl: string = 'http://localhost/food-routine_web/public/';
-    //não mexer
+  public yourSiteUrl: string = 'http://localhost/food-routine_mobile/public/';
+  //não mexer
 
   public consumerKey: string = "4c535f4716132229379a88e1cc";
   //não mexer
