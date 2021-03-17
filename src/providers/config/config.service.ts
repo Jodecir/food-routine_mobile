@@ -27,8 +27,9 @@ if (localStorage.langId == undefined) {
 export class ConfigService {
 
 
-  public yourSiteUrl: string = 'http://localhost:888/food-routine/food-routine_web/public/';
+  public yourSiteUrl: string = 'http://localhost/food-routine_web/public/';
     //não mexer
+
   public consumerKey: string = "4c535f4716132229379a88e1cc";
   //não mexer
   public consumerSecret: string = "72b7c61116132229370ed65ad4";
@@ -209,7 +210,7 @@ export class ConfigService {
           resolve(data);
         }, (err) => {
           
-           window.location.href='/thank-you';
+          //  window.location.href='/thank-you';
           console.log(err);
         });
       }

@@ -94,12 +94,12 @@
       </ion-row>
 
       <ion-row>
-        <ion-col size="6">
+        <!-- <ion-col size="6">
           {{'Shipping Price'|translate}}
-        </ion-col>
-        <ion-col class="ion-text-right" size="6">
+        </ion-col> -->
+        <!-- <ion-col class="ion-text-right" size="6">
           {{order.shipping_cost +" "+order.currency }}
-        </ion-col>
+        </ion-col> -->
       </ion-row>
       <ion-row *ngFor="let c of order.coupons;let ind=index">
         <ion-col size="6">
@@ -119,12 +119,12 @@
       </ion-row>
 
       <ion-row>
-        <ion-col size="6">
+        <!-- <ion-col size="6">
           {{'Tax'|translate}}
-        </ion-col>
-        <ion-col class="ion-text-right" size="6">
+        </ion-col> -->
+        <!-- <ion-col class="ion-text-right" size="6">
           {{order.total_tax +" "+order.currency}}
-        </ion-col>
+        </ion-col> -->
       </ion-row>
 
       <ion-row>
