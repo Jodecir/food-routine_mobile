@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  public selectedIndex = 0;
+  public appPages = [
+    {
+      title: 'Inbox',
+      url: '/explore-container/Inbox',
+      icon: 'mail'
+    },
+    {
+      title: 'Trash',
+      url: '/explore-container/Trash',
+      icon: 'trash'
+    },
+    {
+      title: 'Spam',
+      url: '/explore-container/Spam',
+      icon: 'warning'
+    }
+  ];
 }
