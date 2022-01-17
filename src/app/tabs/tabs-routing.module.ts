@@ -13,11 +13,11 @@ const routes: Routes = [
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('../about/about.module').then(m => m.AboutPageModule)
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('../cadastro-cliente/cadastro-cliente.module').then(m => m.CadastroClientePageModule)
       },
       {
         path: '',
@@ -30,7 +30,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
