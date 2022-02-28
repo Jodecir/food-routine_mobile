@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  public nome_nutricionista:string = "Nutricionista"
   constructor() { }
 
   ngOnInit() {
