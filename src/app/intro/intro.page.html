@@ -1,26 +1,16 @@
-<ion-content padding>
+<ion-content class="welcome-page">
   <ion-slides pager>
-
-    <ion-slide style="background-color: green">
-      <p>Seja bem vindo ao Food-Routine, você pode montar sua rotina alimentar com o auxílio de um profissional sem perder a flexibilidade.</p>
+    <ion-slide style="background-color: green" *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+      <p [innerHTML]="slide.description"></p>
     </ion-slide>
-  
     <ion-slide style="background-color: orange">
-      <p>Tudo de forma simples e confortável, alguns cliques e já está feito sua rotina alimentar ideal.</p>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <h2 class="slide-title">Pronto?</h2>
+      <button ion-button large clear icon-end color="primary">
+        Continuar
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
     </ion-slide>
-  
-    <ion-slide style="background-color: green">
-      <p>Nunca foi tão fácil ser saúdavel de maneira flexível, então oquê você está esperando agora ?</p>
-    </ion-slide>
-  
   </ion-slides>
-
-  <ion-grid>
-    <ion-col size-md="3" offset-md="3" class="gridUm">
-      <div>
-        <a href="tabs/tab1">Continuar</a>
-      </div>
-    </ion-col>
-  </ion-grid>
 </ion-content>
-
