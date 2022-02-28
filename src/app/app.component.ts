@@ -1,3 +1,4 @@
+import { IntroPage } from './intro/intro.page';
 import { Component } from '@angular/core';
 
 @Component({
