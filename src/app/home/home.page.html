@@ -9,9 +9,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding [fullscreen]="true">
-  <app-explore-container name="Seja Bem Vindo"></app-explore-container>
-</ion-content>
+<ion-card>
+  <ion-item>
+    <!-- <ion-avatar item-start>
+      <img src="">
+    </ion-avatar> -->
+    <h2>Nutricionista</h2>
+  </ion-item>
+
+  <ion-card-content>
+    <p>Não deixe de comer as frutas, legumes e verduras.</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <ion-button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <button ion-button icon-start clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Respostas</div>
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note>
+        11h atrás
+      </ion-note>
+    </ion-col>
+  </ion-row>
+</ion-card>
 
 <ion-pane>
   <ion-content>
