@@ -30,6 +30,7 @@ export class FoodService {
   }
 
   addFood(food: Food) {
+    console.log('Prato cadastrado');
     return this.collectionFood.add(food);
   }
   
