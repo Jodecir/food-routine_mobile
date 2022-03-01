@@ -59,7 +59,7 @@ export class FoodCreatePage implements OnInit {
       try {
         await this.foodService.addFood(this.food);
         await this.carregar.dismiss();
-        this.navCtrl.navigateBack('tabs/tab1');
+        this.navCtrl.navigateBack('tabs/home');
       } catch(error) { 
         this.presentToast('Erro ao tentar salvar');
         this.carregar.dismiss();
