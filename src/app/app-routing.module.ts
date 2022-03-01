@@ -25,7 +25,11 @@ const routes: Routes = [
   {
     path: 'food-create',
     loadChildren: () => import('./pages/Food/food-create/food-create.module').then( m => m.FoodCreatePageModule)
+  },  {
+    path: 'food-list',
+    loadChildren: () => import('./pages/Food/food-list/food-list.module').then( m => m.FoodListPageModule)
   }
+
 
 
 ];
