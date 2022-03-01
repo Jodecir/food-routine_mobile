@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Lista Alimentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-list *ngIf="!foodList.length">
     <ion-item *ngFor="let item of [0, 1, 2]">
       <ion-avatar slot="start">
