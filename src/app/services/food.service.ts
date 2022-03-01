@@ -11,16 +11,16 @@ import { map } from'rxjs/operators';
 export class FoodService {
 
   //cria a coleção (banco) no firestore
-  private colecaoFood: AngularFirestoreCollection<Food>;
+  private collectionFood: AngularFirestoreCollection<Food>;
   //instancia o firestore
   constructor(private afs: AngularFirestore) { 
-    this.colecaoFood = this.afs.collection<Food>('food');
+    this.collectionFood = this.afs.collection<Food>('food');
   }
 
   listaFood() {
     //snapshotChanges().pipe = filtrar por id
     //map = mapear o prato através do id
-    return this.colecaoFood.snapshotChanges().pipe(map(actions=> {
+    return this.collectionFood.snapshotChanges().pipe(map(actions=> {
       return actions.map(a => { 
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
@@ -30,18 +30,18 @@ export class FoodService {
   }
 
   addFood(food: Food) {
-    return this.colecaoFood.add(food);
+    return this.collectionFood.add(food);
   }
   
   mostraFood(id: string) {
-    return this.colecaoFood.doc<Food>(id).valueChanges();
+    return this.collectionFood.doc<Food>(id).valueChanges();
   }
 
   editarFood(id: string, food: Food) {
-    return this.colecaoFood.doc<Food>(id).update(food);
+    return this.collectionFood.doc<Food>(id).update(food);
   }
 
   excluirFood(id: string) {
-    return this.colecaoFood.doc(id).delete();
+    return this.collectionFood.doc(id).delete();
   }
 }
