@@ -10,11 +10,11 @@ import { map } from'rxjs/operators';
 })
 export class FoodService {
 
-  //cria a coleção (banco) no firestore
+  public dbName = "food";
   private collectionFood: AngularFirestoreCollection<Food>;
-  //instancia o firestore
+  
   constructor(private afs: AngularFirestore) { 
-    this.collectionFood = this.afs.collection<Food>('food');
+    this.collectionFood = this.afs.collection<Food>(this.dbName);
   }
 
   listaFood() {
@@ -30,8 +30,10 @@ export class FoodService {
   }
 
   addFood(food: Food) {
-    console.log('Prato cadastrado');
-    return this.collectionFood.add(food);
+    return this.collectionFood.add(food).
+    then((res => {
+      console.log('Prato cadastrado');
+    }));
   }
   
   mostraFood(id: string) {
