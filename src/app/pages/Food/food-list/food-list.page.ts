@@ -16,14 +16,14 @@ export class FoodListPage implements OnInit {
 
   public foodList = new Array<Food>();
   private loading:any;
-  private produtoSubscription:Subscription;
+  private foodSubscription:Subscription;
   
   constructor(
     private loadingCtrl:LoadingController,
-    private produtoService:FoodService,
+    private foodService:FoodService,
     private toastCtrl:ToastController
   ) {
-    this.produtoSubscription = this.produtoService.listaFood().subscribe(data=>{
+    this.foodSubscription = this.foodService.listaFood().subscribe(data=>{
       this.foodList = data;
     });
   }
@@ -32,7 +32,7 @@ export class FoodListPage implements OnInit {
   }
 
   ngOnDestroy() {
-    this.produtoSubscription.unsubscribe();
+    this.foodSubscription.unsubscribe();
   }
   
   async presentLoading() { 
@@ -41,7 +41,7 @@ export class FoodListPage implements OnInit {
   }
 
   async deleteFood(id:string) { 
-    try { await this.produtoService.excluirFood(id);
+    try { await this.foodService.excluirFood(id);
     } catch(error) {
       this.presentToast('Erro ao tentar deletar');
     }
