@@ -55,7 +55,7 @@ export class FoodCreatePage implements OnInit {
         this.presentToast('Erro ao tentar salvar');
         this.carregar.dismiss();
       }
-    } else { this.food.criacao = new Date().getTime();
+    } else { this.food.dt_registro = new Date().getTime();
       try {
         await this.foodService.addFood(this.food);
         await this.carregar.dismiss();

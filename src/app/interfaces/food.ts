@@ -1,8 +1,8 @@
 export interface Food {
-  id?: string;
+  id_food?: number;
   calorias?: number;
   carboidratos?: number;
-  criacao?: number;
+  dt_registro?: number;
   nome?: string;
   descricao?: string;
   imagem?: string;
