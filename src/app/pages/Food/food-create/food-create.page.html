@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>food-create</ion-title>
+    <ion-title>Criação de Pratos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="food.nome" placeholder="Nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="food.descricao" placeholder="Descrição"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="food.imagem" placeholder="Foto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="food.calorias" placeholder="Calorias"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="food.carboidratos" placeholder="Carboidratos"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-toolbar>
+    <ion-button (click)="salvarProduto()" expand="block">
+      Salvar
+    </ion-button>
+  </ion-toolbar>
 </ion-content>

@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../pages/User/user-registration/user-registration.module').then(m => m.UserRegistrationPageModule)
+        loadChildren: () => import('../pages/Food/food-create/food-create.module').then(m => m.FoodCreatePageModule)
       }
     ]
   },
