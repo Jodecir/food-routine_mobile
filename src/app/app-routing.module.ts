@@ -3,7 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/intro', pathMatch: 'full'
+    path: '', 
+    redirectTo: '/intro', 
+    pathMatch: 'full'
   },
   {
     path: 'tabs',
@@ -18,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'cadastro-cliente',
-    loadChildren: () => import('./cadastro-cliente/cadastro-cliente.module').then( m => m.CadastroClientePageModule)
+    path: 'user-registration',
+    loadChildren: () => import('./pages/User/user-registration/user-registration.module').then( m => m.UserRegistrationPageModule)
   },
   {
     path: 'intro',

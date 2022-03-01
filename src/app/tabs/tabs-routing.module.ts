@@ -8,6 +8,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: '',
+        redirectTo: '/tabs/tab1',
+        pathMatch: 'full'
+      },
+      {
         path: 'tab1',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
@@ -17,12 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../cadastro-cliente/cadastro-cliente.module').then(m => m.CadastroClientePageModule)
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
+        loadChildren: () => import('../pages/User/user-registration/user-registration.module').then(m => m.UserRegistrationPageModule)
       }
     ]
   },
