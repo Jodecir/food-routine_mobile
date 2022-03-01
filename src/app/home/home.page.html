@@ -2,7 +2,11 @@
   <ion-toolbar class="navbar">
     <ion-title>Home</ion-title>
     <ion-buttons>
-      <ion-menu-button></ion-menu-button>
+      <ion-button (click)="logout()" color="danger" expand="block">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-menu-button>
+      </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
