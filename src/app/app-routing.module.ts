@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+  },  {
+    path: 'food-create',
+    loadChildren: () => import('./pages/Food/food-create/food-create.module').then( m => m.FoodCreatePageModule)
   }
+
 
 ];
 @NgModule({
