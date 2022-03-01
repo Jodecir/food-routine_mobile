@@ -1,9 +1,63 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>food-list</ion-title>
+    <ion-title>Lista Alimentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list *ngIf="!foodList.length">
+    <ion-item *ngFor="let item of [0, 1, 2]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>  
+  <ion-list>
+    <ion-item-sliding *ngFor="let food of foodList">
+      <ion-item button [routerLink]="['/food', food.id]">
+        <ion-avatar slot="start">
+          <img [src]="food.imagem">
+        </ion-avatar>
 
+        <ion-label>
+          <h1>{{ food.nome }}</h1>
+          <p>{{ food.descricao }}</p>
+          <p>{{ food.dt_registro | date: 'short' }}</p>
+        </ion-label>
+        <ion-note color="primary" slot="end" *ngIf="food.preco">{{ food.preco | currency: 'BRL' }}</ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteFood(food.id)">
+          <ion-icon slot="top" name="trash"></ion-icon>
+          Excluir
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button routerLink="/tabs/create" expand="block">
+            Adicionar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
