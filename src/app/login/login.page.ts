@@ -38,7 +38,8 @@ export class LoginPage implements OnInit {
     if (this.formValidation()) {
       let loading = await this.loadingCtrl.create({ message: "Por Favor Espere..." }); loading.present();
       try {
-        await this.afAuth .signInWithEmailAndPassword(user.email, user.password) .then(data => { console.log(data); this.navCtrl.navigateRoot("home"); }) .catch();
+        await this.afAuth .signInWithEmailAndPassword(user.email, user.password) 
+        .then(data => { console.log(data); this.navCtrl.navigateRoot("intro"); }) .catch();
       } 
       catch (e) { this.showToast(e); } loading.dismiss();
     }
