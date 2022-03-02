@@ -12,7 +12,8 @@ import { ToastController, LoadingController, NavController } from"@ionic/angular
 })
 export class RegistrationPage implements OnInit {
 
-  user = {} as User;
+  public user = {} as User;
+  public confirmationPsw = "";
 
   constructor(
     private toastCtrl: ToastController,

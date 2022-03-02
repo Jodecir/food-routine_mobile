@@ -4,16 +4,26 @@
       <ion-title class="ion-text-center">Cadastro de Usuários</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <form #registrationForms="ngForm">
     <ion-item>
       <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email" [(ngModel)]="user.email" required></ion-input>
+      <ion-input type="email" name="email" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required></ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" required></ion-input>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password"  name="psw1" [(ngModel)]="user.password" #psw1="ngModel" minlength="8" required></ion-input>
     </ion-item>
-    <ion-button class="ion-padding" color="primary" expand="full" (click)="register(user)">Cadastrar</ion-button>
+    <ion-text color=danger *ngIf="(psw1.invalid && psw2.dirty)">As senhas são muito curta!</ion-text>
+
+    <ion-item>
+      <ion-label position="floating">Confirme a Senha</ion-label>
+      <ion-input type="password" name="psw2" [(ngModel)]="confirmationPsw" #psw2="ngModel" required></ion-input>
+    </ion-item>
+    <ion-text color=danger *ngIf="(psw1.value != psw2.value) && psw2.dirty">As senhas são diferentes!</ion-text>
+
+    <ion-button type="submit" class="ion-padding" color="primary" expand="full" [disabled]="registrationForms.invalid || (psw1.value != psw2.value)" (click)="register(user)">Cadastrar</ion-button>
+
     <ion-button class="ion-padding" color="light" expand="full" [routerLink]="['/login']">Já tem uma Conta ?</ion-button>
-  </ion-content>
+  </form>
 </ion-content>
