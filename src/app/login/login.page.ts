@@ -36,11 +36,11 @@ export class LoginPage implements OnInit {
 
   async login(user: User) {
     if (this.formValidation()) {
-      let loader = await this.loadingCtrl.create({ message: "Por Favor Espere..." }); loader.present();
+      let loading = await this.loadingCtrl.create({ message: "Por Favor Espere..." }); loading.present();
       try {
-        await this.afAuth .signInWithEmailAndPassword(user.email, user.password) .then(data => { console.log(data); this.navCtrl.navigateRoot("home"); }) .catch(); 
+        await this.afAuth .signInWithEmailAndPassword(user.email, user.password) .then(data => { console.log(data); this.navCtrl.navigateRoot("home"); }) .catch();
       } 
-      catch (e) { this.showToast(e); } loader.dismiss();
+      catch (e) { this.showToast(e); } loading.dismiss();
     }
   }
 

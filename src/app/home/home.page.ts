@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoadingController } from'@ionic/angular';
+import { LoadingController, NavController } from'@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private loadingCtrl:LoadingController,
+    private navCtrl: NavController,
   ) { }
 
   ngOnInit() {
@@ -26,7 +27,8 @@ export class HomePage implements OnInit {
   }
 
   async logout() { 
-    await this.presentLoading();
+    await this.presentLoading(); 
+    this.navCtrl.navigateRoot("login");
   }
 
 }
