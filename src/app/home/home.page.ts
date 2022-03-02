@@ -27,7 +27,6 @@ export class HomePage implements OnInit {
   }
 
   async logout() { 
-    await this.presentLoading(); 
     this.navCtrl.navigateRoot("login");
   }
 
