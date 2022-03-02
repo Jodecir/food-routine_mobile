@@ -47,6 +47,13 @@ export class FoodListPage implements OnInit {
     }
   }
 
+  async updateFood(id:string, food: Food) { 
+    try { await this.foodService.editarFood(id, food);
+    } catch(error) {
+      this.presentToast('Erro ao tentar atualizar');
+    }
+  }
+
   async presentToast(message:string) {
     const toast = await this.toastCtrl.create({message,duration:2000});
     toast.present();
