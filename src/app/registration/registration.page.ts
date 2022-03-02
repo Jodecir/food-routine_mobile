@@ -26,8 +26,6 @@ export class RegistrationPage implements OnInit {
   }
 
   async register(user: User) {
-    console.log(user);
-    
     if(this.formValidation()) {
       let loading = await this.loadingCtrl.create({
         message: "Por Favor espere..."
@@ -38,9 +36,12 @@ export class RegistrationPage implements OnInit {
         // entrar com email e password
         await this.afAuth.
         createUserWithEmailAndPassword(user.email, user.password)
-        .then(data => {
-          console.log(data);
+        .then(result => {
+          console.log("Cadastrado!", result);  
           this.navCtrl.navigateRoot("login");
+        },
+        error=>{
+          console.log("Erro:\n", error);
         })
         .catch();
       } 
