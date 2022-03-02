@@ -12,36 +12,56 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <!-- <ion-avatar item-start>
-        <img src="">
-      </ion-avatar> -->
-      <h2>{{ nome_nutricionista }}</h2>
+  <ion-list *ngIf="!postList.length">
+    <ion-item *ngFor="let item of [0, 1, 2, 3, 4, 5]">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
     </ion-item>
-  
-    <ion-card-content>
-      <p>{{ aviso_nutricionista}}</p>
-    </ion-card-content>
-  
-    <ion-row>
-      <ion-col>
-        <ion-button ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Respostas</div>
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          11h atrás
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+  </ion-list> 
+  <ion-list *ngFor="let post of postList">
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="post.imagem">
+        </ion-avatar>
+        <h2>{{ post.author }}</h2>
+      </ion-item>
+    
+      <ion-card-content>
+        <p>{{ post.conteudo }}</p>
+      </ion-card-content>
+    
+      <ion-row>
+        <ion-col>
+          <ion-button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col align-self-center text-center>
+          <button ion-button icon-start clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>Responda</div>
+          </button>
+        </ion-col>
+        <ion-col align-self-center text-center>
+          <ion-note>
+            {{ post.dt_postagem | date: 'short' }}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
 </ion-content>
 <ion-router-outlet></ion-router-outlet>

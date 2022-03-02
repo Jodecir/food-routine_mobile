@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoadingController, NavController } from'@ionic/angular';
+import { LoadingController, NavController, ToastController } from'@ionic/angular';
+
+import { PostService } from'src/app/services/post.service';
+import { Post } from'src/app/interfaces/post';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +14,20 @@ import { LoadingController, NavController } from'@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  public nome_nutricionista:string = "Nutricionista"
-  public aviso_nutricionista:string = "Não deixe de comer as frutas, legumes e verduras."
+  public postList = new Array<Post>();
   private loading:any;
+  private postSubscription:Subscription;
 
   constructor(
     private loadingCtrl:LoadingController,
     private navCtrl: NavController,
-  ) { }
+    private postService:PostService,
+    private toastCtrl:ToastController
+  ) { 
+    this.postSubscription = this.postService.listaPost().subscribe(data=>{
+      this.postList = data;
+    });
+  }
 
   ngOnInit() {
   }
