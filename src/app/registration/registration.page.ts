@@ -29,11 +29,10 @@ export class RegistrationPage implements OnInit {
     console.log(user);
     
     if(this.formValidation()) {
-      // mostrar loader
-      let loader = await this.loadingCtrl.create({
+      let loading = await this.loadingCtrl.create({
         message: "Por Favor espere..."
       });
-      loader.present();
+      loading.present();
 
       try {
         // entrar com email e password
@@ -41,14 +40,12 @@ export class RegistrationPage implements OnInit {
         createUserWithEmailAndPassword(user.email, user.password)
         .then(data => {
           console.log(data);
-          // redireciona para outra página
           this.navCtrl.navigateRoot("login");
         })
         .catch();
       } 
       catch (e) {this.showToast(e);}
-      // dispensar loader
-      loader.dismiss();
+      loading.dismiss();
     }
   }
 
