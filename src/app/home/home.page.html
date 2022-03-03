@@ -13,17 +13,24 @@
 
 <ion-content>
   <ion-list *ngIf="!postList.length">
-    <ion-item *ngFor="let item of [0, 1, 2, 3, 4, 5]">
+    <ion-item *ngFor="let item of [0, 1, 2]">
       <ion-avatar slot="start">
         <ion-skeleton-text animated></ion-skeleton-text>
       </ion-avatar>
       <ion-label>
         <h3>
           <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
         </h3>
         <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
         </p>
+        <p>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </p>
+        <h5>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h5>
         <p>
           <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
         </p>
@@ -64,4 +71,3 @@
     </ion-card>
   </ion-list>
 </ion-content>
-<ion-router-outlet></ion-router-outlet>
