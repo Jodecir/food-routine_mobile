@@ -10,11 +10,11 @@ import { map } from'rxjs/operators';
 })
 export class PostService {
 
-  public dbName = "post";
+  public collectionName = "post";
   private collectionPost: AngularFirestoreCollection<Post>;
   
   constructor(private afs: AngularFirestore) { 
-    this.collectionPost = this.afs.collection<Post>(this.dbName);
+    this.collectionPost = this.afs.collection<Post>(this.collectionName);
   }
 
   listaPost() {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from'@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { User } from '../models/user.model';
@@ -10,17 +10,20 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  private collection = "users";
+  public collectionName = "users";
+  private collectionUser: AngularFirestoreCollection<User>;
 
   constructor(
-    private firedb: AngularFirestore,
+    private afs: AngularFirestore,
     public auth: AngularFireAuth
-  ) { }
+  ) { 
+    this.collectionUser = this.afs.collection<User>(this.collectionName);
+  }
 
   public addUser(user: User) {
     return this.auth.createUserWithEmailAndPassword(user.email, user.password).then(
       res => {
-        return this.firedb.collection(this.collection).doc(res.user.uid).set(
+        return this.afs.collection(this.collectionName).doc(res.user.uid).set(
           {
             nome: user.nome,
             email: user.email,

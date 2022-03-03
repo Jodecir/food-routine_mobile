@@ -10,11 +10,11 @@ import { map } from'rxjs/operators';
 })
 export class FoodService {
 
-  public dbName = "food";
+  public collectionName = "food";
   private collectionFood: AngularFirestoreCollection<Food>;
   
   constructor(private afs: AngularFirestore) { 
-    this.collectionFood = this.afs.collection<Food>(this.dbName);
+    this.collectionFood = this.afs.collection<Food>(this.collectionName);
   }
 
   listaFood() {
