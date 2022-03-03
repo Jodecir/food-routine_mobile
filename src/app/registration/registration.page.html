@@ -4,7 +4,12 @@
       <ion-title class="ion-text-center">Cadastro de Usuários</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form #registrationForms="ngForm">
+  <form #registrationForms="ngForm" (ngSubmit)="onSubmit(registrationForms)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="name" name="name" [(ngModel)]="user.nome" required></ion-input>
+    </ion-item>
+    
     <ion-item>
       <ion-label position="floating">E-mail</ion-label>
       <ion-input type="email" name="email" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required></ion-input>
@@ -22,7 +27,7 @@
     </ion-item>
     <ion-text color=danger *ngIf="(psw1.value != psw2.value) && psw2.dirty">As senhas são diferentes!</ion-text>
 
-    <ion-button type="submit" class="ion-padding" color="primary" expand="full" [disabled]="registrationForms.invalid || (psw1.value != psw2.value)" (click)="register(user)">Cadastrar</ion-button>
+    <ion-button type="submit" class="ion-padding" color="primary" expand="full" [disabled]="registrationForms.invalid || (psw1.value != psw2.value)">Cadastrar</ion-button>
 
     <ion-button class="ion-padding" color="light" expand="full" [routerLink]="['/login']">Já tem uma Conta ?</ion-button>
   </form>

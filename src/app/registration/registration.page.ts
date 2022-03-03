@@ -3,7 +3,8 @@ import { AngularFireAuth } from"@angular/fire/compat/auth";
 
 import { ToastController, LoadingController, NavController } from"@ionic/angular";
 
-import { User } from'../models/user.model';
+import { User } from '../models/user.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +20,8 @@ export class RegistrationPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private navCtrl: NavController,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private userService:UserService
   ) {}
 
   ngOnInit() {
@@ -33,11 +35,10 @@ export class RegistrationPage implements OnInit {
       loading.present();
 
       try {
-        // entrar com email e password
         await this.afAuth.
         createUserWithEmailAndPassword(user.email, user.password)
         .then(result => {
-          console.log("Cadastrado!", result);  
+          console.log("Cadastrado!\n", result);  
           this.navCtrl.navigateRoot("login");
         },
         error=>{
@@ -50,14 +51,29 @@ export class RegistrationPage implements OnInit {
     }
   }
 
+  onSubmit(form) {
+    if(form.valid){
+      this.userService.addUser(this.user).then(
+        res=>{
+          console.log("Cadastrado!\n", res);          
+        },
+        err=>{
+          console.log("Erro:\n", err);
+        }
+      )
+    }
+  }
+
   formValidation() {
+    if(!this.user.nome) {
+      this.showToast("Digite seu nome");
+      return false;
+    }
     if(!this.user.email) {
-      // mostrar toast message 
       this.showToast("Digite seu e-mail");
       return false;
     }
     if(!this.user.password) {
-      // mostrar toast message 
       this.showToast("Digite sua Senha");
       return false;
     }
