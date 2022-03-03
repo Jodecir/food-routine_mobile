@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from"@angular/fire/compat/auth";
 
-import { User } from'../models/user.model';
+import { User } from'../models/user';
 
 import { ToastController, LoadingController, NavController } from"@ionic/angular";
 
