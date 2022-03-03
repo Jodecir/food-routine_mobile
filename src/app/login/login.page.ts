@@ -3,7 +3,7 @@ import { AngularFireAuth } from"@angular/fire/compat/auth";
 
 import { LoadingController, NavController, ToastController , Platform } from"@ionic/angular";
 
-import { User } from'../models/user';
+import { User } from'../models/user.model';
 
 @Component({
   selector: 'app-login',
